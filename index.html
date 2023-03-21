@@ -3,27 +3,58 @@
 <head>
     <html>
         <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Hello Bulma!</title>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-                <meta charset="UTF-8">
-             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets\style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-        <title>Movie Finder</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Hello Bulma!</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+        <title>Brewery Finder</title>
 </head>
 <body>
-    <header>Movie Finder</header>
-    <h1>Theater-A</h1>
-    <h2>Movie: Rating:</h2>
-<img src="assets\Shots\pexels-pixabay-33129.jpg" alt="Popcorn">
+
+    <header class="is-size-1 has-text-centered has-background-danger-light mar">Brewery Finder</header>
+    <!-- Need 2 Images next to Brewery Finder on the header, one can float right on can float left --> 
+      <input id="city-input">
+      <button class="btn" id="city-search-btn" onclick="storeCity(), displayBreweries()">Search</button>
+      <div id="brewery-container">
+     <ul id="brewery-list">
+     </ul>
+     </div>
+     <!--Search Bar and Button needs to be centered, if possible make it so the button is below the search bar-->
 
 
+     <!-- Displays for Different Pubs-->
+    </div>
+     <div class="tile is-parent">
+        <article class="tile is-child notification is-warning">
+          <p class="title">Pub A </p>
+          <p class="subtitle">Aligned with the right tile</p>
+          <div class="content">
+        </div>
 
+        </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-info">
+                    <p class="title">Pub B </p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                </div>
+
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                    <p class="title">Pub C </p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                </div>
+
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-success">
+                    <p class="title">Pub D </p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                </div>
 
         <script src="assets\script.js"></script>
 </body>
