@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brewery Finder</title>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Brewery Finder</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+        <title>Brewery Finder</title>
 </head>
 <body>
-    <input id="city-input">
-    <button class="btn" id="city-search-btn" onclick="storeCity(), displayBreweries()">Search</button>
-    <div id="brewery-container">
-        <ul id="brewery-list">
 
-        </ul>
+
+  <div>
+    <header class="is-size-1 has-text-centered has-background-danger-light">Brewery Finder</header>
+    <div class="column is-auto has-text-centered"> <input id="city-input"> <button class="btn" id="city-search-btn" onclick="storeCity(), displayBreweries()">Search</button>
+      <div id="brewery-container">
+     <ul id="brewery-list">
+     </ul>
     </div>
 
+
+     <footer class="footer is size-1 has-background-danger-light colum is-auto">
+      <div class="content has-text-centered is-black">
+        <p>
+          This website was created by Stephen Bondurant, Kyle Schwent, Ashara Martinez, & Chris Thieret.
+          <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+                     
+
+        <script src="assets\script.js"></script>
 </body>
-<script src="./assets/script.js"></script>
 </html>
