@@ -16,31 +16,39 @@ function displayBreweries() {
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
 
   fetch(breweryUrl, {})
-    .then(function(response) {
+    .then(function (response) {
       removeBreweryDivs(); // call the removeBreweryList() function here
 
       return response.json();
     })
-    .then(function(breweryData) {
+    .then(function (breweryData) {
       console.log(breweryData);
       for (let i = 0; i < breweryData.length; i++) {
         var breweryDiv = document.createElement("div");
         breweryDiv.classList.add("brewery-div");
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
-        var breweryAddress = document.createElement("li");
+        var breweryAddressLine1 = document.createElement("li");
+        var breweryAddressLine2 = document.createElement("li");
         var breweryPhone = document.createElement("li");
         breweryName.textContent = breweryData[i].name;
-        breweryAddress.textContent = breweryData[i].street;
+        breweryAddressLine1.textContent = breweryData[i].street;
+        breweryAddressLine2.textContent =
+          breweryData[i].city +
+          ", " +
+          breweryData[i].state +
+          " " +
+          breweryData[i].postal_code.slice(0, 5);
         breweryPhone.textContent = breweryData[i].phone;
         UList.appendChild(breweryName);
-        UList.appendChild(breweryAddress);
+        UList.appendChild(breweryAddressLine1);
+        UList.appendChild(breweryAddressLine2);
         UList.appendChild(breweryPhone);
         breweryDiv.appendChild(UList);
         Putting.appendChild(breweryDiv);
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error(error);
     });
 }
@@ -53,10 +61,10 @@ function showWeather() {
   var cityInput = document.querySelector("#city-input");
   city = cityInput.value;
   fetch(weatherUrl, {})
-    .then(function(response) {
+    .then(function (response) {
       return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
       var iconUrl =
         "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
