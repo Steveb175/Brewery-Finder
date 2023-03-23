@@ -59,11 +59,11 @@ function showWeather() {
     .then(function(data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
       var iconUrl =
-        "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+        "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
-        document.body.style.background =
-          "#f3f3f3 url('iconUrl') no-repeat right top";
+        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat right top fixed`;
       }
+      changeBackground();
       console.log(data);
     });
 }
