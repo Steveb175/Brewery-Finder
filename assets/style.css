@@ -1,49 +1,44 @@
-<<<<<<< HEAD
-=======
 header {
-    font-size: 70px;
-    padding: 20px;
-    text-align: center;
-    background-color: red;
-    font-family: 'Lilita One', cursive;
+  font-size: 70px;
+  padding: 20px;
+  text-align: center;
+  background-color: red;
+  font-family: "Lilita One", cursive;
 }
 h1 {
-    font-size: 50;
-    padding: 40;
-    text-align: center;
-    background-color: rgb(0, 255, 98);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 40px;
+  font-size: 50;
+  padding: 40;
+  text-align: center;
+  background-color: rgb(0, 255, 98);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin: 40px;
 }
 
 input#city-input {
-    margin: 4px auto;
-    display: block;
+  margin: 4px auto;
+  display: block;
 }
 button#city-search-btn {
-    margin: 0 auto;
-    display: block;
-    padding: 1px;
+  margin: 0 auto;
+  display: block;
+  padding: 1px;
 }
 
 h2 {
-    text-align: center;
-    word-spacing: 400px;
-    padding: 10px;
+  text-align: center;
+  word-spacing: 400px;
+  padding: 10px;
 }
 
 img {
-    display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 h3 {
-    padding: 10px;
+  padding: 10px;
 }
 
 p {
-    
 }
-
->>>>>>> d187b993ab298cf61e5960c917a7c80c231e88b0
