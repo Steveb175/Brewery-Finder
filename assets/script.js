@@ -1,18 +1,8 @@
 //Global Variables
-var breweryList = document.querySelector("#brewery-container");
-var breweryAddresses = document.querySelector("#brewery-addresses");
-var city;
-
-// Function to store city name
-// function storeCity() {
-//   localStorage.setItem("cityName", city);
-// }
 
 // Function to remove child elements upon fetch
 function removeBreweryList() {
-  var currentBreweryListItems = document.getElementsByClassName(
-    "brewery-list-item"
-  );
+  var currentBreweryListItems = document.getElementsByClassName("brewery-div");
   while (currentBreweryListItems.length > 0) {
     currentBreweryListItems[0].parentNode.removeChild(
       currentBreweryListItems[0]
@@ -20,14 +10,10 @@ function removeBreweryList() {
   }
 }
 
-function removeBreweryAddresses() {
-  var currentAddressListItems = document.getElementsByClassName(
-    "address-list-item"
-  );
-  while (currentAddressListItems.length > 0) {
-    currentAddressListItems[0].parentNode.removeChild(
-      currentAddressListItems[0]
-    );
+function removeBreweryDivs() {
+  var currentBrewDiv = document.getElementsByClassName("brewery-div");
+  while (currentBrewDiv.length > 0) {
+    currentBrewDiv[0].parentNode.removeChild(currentBrewDiv[0]);
   }
 }
 // Fetch and display breweries in chosen city's area
@@ -39,8 +25,8 @@ function displayBreweries() {
 
   fetch(breweryUrl, {})
     .then(function(response) {
-      removeBreweryList(); // call the removeBreweryList() function here
-      removeBreweryAddresses(); //and addresses
+      removeBreweryDivs(); // call the removeBreweryList() function here
+
       return response.json();
     })
     .then(function(breweryData) {
@@ -49,15 +35,17 @@ function displayBreweries() {
         var breweryDiv = document.createElement("div");
         breweryDiv.classList.add("brewery-div");
         for (let i = 0; i < breweryData.length; i++) {
+          var UList = document.createElement("ul");
           var breweryName = document.createElement("li");
           var breweryAddress = document.createElement("li");
           var breweryPhone = document.createElement("li");
           breweryName.textContent = breweryData[i].name;
           breweryAddress.textContent = breweryData[i].street;
           breweryPhone.textContent = breweryData[i].phone;
-          breweryDiv.appendChild(breweryName);
-          breweryDiv.appendChild(breweryAddress);
-          breweryDiv.appendChild(breweryPhone);
+          UList.appendChild(breweryName);
+          UList.appendChild(breweryAddress);
+          UList.appendChild(breweryPhone);
+          breweryDiv.appendChild(UList);
         }
       }
     })
@@ -85,3 +73,9 @@ function showWeather() {
 var searchBtn = document.getElementById("city-search-btn");
 searchBtn.addEventListener("click", displayBreweries);
 searchBtn.addEventListener("click", showWeather);
+
+//<script>
+// function myFunction() {
+//   document.body.style.background = "#f3f3f3 url('img_tree.png') no-repeat right top";
+// }
+// </script>
