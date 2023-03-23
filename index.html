@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="stylesheet" src="./assets/style.css" />
     <title>Brewery Finder</title>
-</head>
-<body>
-    <input id="city-input">
-    <button class="btn" id="city-search-btn" onclick="storeCity(), displayBreweries()">Search</button>
-    <div id="brewery-container">
-        <ul id="brewery-list">
-
-        </ul>
+  </head>
+  <body>
+    <input id="city-input" />
+    <button class="btn" id="city-search-btn">
+      Search
+    </button>
+    <div id="full-container">
+      <div id="brewery-container">
+        <ul id="brewery-list"></ul>
+      </div>
+      <div id="brewery-addresses">
+        <ul id="address-list"></ul>
+      </div>
     </div>
-
-</body>
-<script src="./assets/script.js"></script>
+  </body>
+  <script src="./assets/script.js"></script>
 </html>
+<!--storeCity(), -->
