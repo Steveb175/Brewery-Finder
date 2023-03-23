@@ -1,15 +1,7 @@
 //Global Variables
+var Putting = document.getElementById("Spaces");
 
 // Function to remove child elements upon fetch
-function removeBreweryList() {
-  var currentBreweryListItems = document.getElementsByClassName("brewery-div");
-  while (currentBreweryListItems.length > 0) {
-    currentBreweryListItems[0].parentNode.removeChild(
-      currentBreweryListItems[0]
-    );
-  }
-}
-
 function removeBreweryDivs() {
   var currentBrewDiv = document.getElementsByClassName("brewery-div");
   while (currentBrewDiv.length > 0) {
@@ -34,19 +26,18 @@ function displayBreweries() {
       for (let i = 0; i < breweryData.length; i++) {
         var breweryDiv = document.createElement("div");
         breweryDiv.classList.add("brewery-div");
-        for (let i = 0; i < breweryData.length; i++) {
-          var UList = document.createElement("ul");
-          var breweryName = document.createElement("li");
-          var breweryAddress = document.createElement("li");
-          var breweryPhone = document.createElement("li");
-          breweryName.textContent = breweryData[i].name;
-          breweryAddress.textContent = breweryData[i].street;
-          breweryPhone.textContent = breweryData[i].phone;
-          UList.appendChild(breweryName);
-          UList.appendChild(breweryAddress);
-          UList.appendChild(breweryPhone);
-          breweryDiv.appendChild(UList);
-        }
+        var UList = document.createElement("ul");
+        var breweryName = document.createElement("li");
+        var breweryAddress = document.createElement("li");
+        var breweryPhone = document.createElement("li");
+        breweryName.textContent = breweryData[i].name;
+        breweryAddress.textContent = breweryData[i].street;
+        breweryPhone.textContent = breweryData[i].phone;
+        UList.appendChild(breweryName);
+        UList.appendChild(breweryAddress);
+        UList.appendChild(breweryPhone);
+        breweryDiv.appendChild(UList);
+        Putting.appendChild(breweryDiv);
       }
     })
     .catch(function(error) {
@@ -67,6 +58,12 @@ function showWeather() {
     })
     .then(function(data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
+      var iconUrl =
+        "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+      function changeBackground() {
+        document.body.style.background =
+          "#f3f3f3 url('iconUrl') no-repeat right top";
+      }
       console.log(data);
     });
 }
