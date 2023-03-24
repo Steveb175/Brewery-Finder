@@ -1,11 +1,16 @@
 ## User Story 
 
-I want to be able to see local theaters near me by entering my zipcode, I Also want to see a poster of the movie,
-while also seeing what the review score for the movie was. There should also be a brief description of the movie to go along with it.
+I want to be able to see breweries near me by entering my city name,.
+I also want to see the name of the brewery, the phone number, and the address.
+I also want to see what the weather is so that I can determine if I want to go out that day.
+
 
 ## Acceptance Criteria 
 
 The Project is finished after the following: 
 
-1. A use-able API is found that will allow the developers to use it to find nearby movies through a zipcode. 
-2. The a hard codded layout of pages 1 and 2 are made. (Chris is on page one, Ash is on page 2)
+1. A use-able API is found that will allow the developers to use it to find nearby breweries through a cityname. 
+2. A basic HTML with a header, a search bar with a button, and footer.
+3. The content of each specific breweries should display onscreen. 
+4. The weather should show up on the top right of the screen. 
+5. The content that is displayed from the Javascript/API's, should be look orderly and have a range of differing colors and styles.
