@@ -25,7 +25,12 @@ function displayBreweries() {
       console.log(breweryData);
       for (let i = 0; i < breweryData.length; i++) {
         var breweryDiv = document.createElement("div");
-        breweryDiv.classList.add("brewery-div");
+        breweryDiv.classList.add("brewery-div","column","card","has-background-info-light","m-1");
+        var cardcontentdiv = document.createElement('div');
+        var contentdiv = document.createElement('div');
+        contentdiv.classList.add('content');
+        cardcontentdiv.classList.add('card-content');
+
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
         breweryName.classList.add("brewery-name");
@@ -54,7 +59,10 @@ function displayBreweries() {
         UList.appendChild(breweryAddressLine2);
         UList.appendChild(breweryPhone);
         UList.appendChild(breweryUrlItem);
-        breweryDiv.appendChild(UList);
+        contentdiv.appendChild(UList);
+        cardcontentdiv.appendChild(contentdiv);
+        breweryDiv.appendChild(cardcontentdiv);
+
         Putting.appendChild(breweryDiv);
       }
     })
