@@ -16,12 +16,12 @@ function displayBreweries() {
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
 
   fetch(breweryUrl, {})
-    .then(function (response) {
+    .then(function(response) {
       removeBreweryDivs(); // call the removeBreweryList() function here
 
       return response.json();
     })
-    .then(function (breweryData) {
+    .then(function(breweryData) {
       console.log(breweryData);
       for (let i = 0; i < breweryData.length; i++) {
         var breweryDiv = document.createElement("div");
@@ -52,7 +52,7 @@ function displayBreweries() {
         Putting.appendChild(breweryDiv);
       }
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.error(error);
     });
 }
@@ -61,27 +61,31 @@ function showWeather() {
   var weatherUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
-    "&appid=4f532c03f12a6d8603036fbfb4f2b105";
+    "&appid=4f532c03f12a6d8603036fbfb4f2b105&units=imperial";
   var cityInput = document.querySelector("#city-input");
   city = cityInput.value;
   fetch(weatherUrl, {})
-    .then(function (response) {
+    .then(function(response) {
       return response.json();
     })
-    .then(function (data) {
+    .then(function(data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
       var iconUrl =
         "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
-        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat right top fixed`;
+        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat left top fixed`;
       }
       changeBackground();
+      var Temp = document.querySelector("#temp");
+      Temp.textContent = data.main.temp + "°F";
       console.log(data);
     });
 }
 var searchBtn = document.getElementById("city-search-btn");
 searchBtn.addEventListener("click", displayBreweries);
 searchBtn.addEventListener("click", showWeather);
+
+// Execute a function when the user presses a key on the keyboard
 
 //<script>
 // function myFunction() {
