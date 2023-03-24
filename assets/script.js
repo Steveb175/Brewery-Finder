@@ -16,20 +16,26 @@ function displayBreweries() {
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
 
   fetch(breweryUrl, {})
-    .then(function(response) {
+    .then(function (response) {
       removeBreweryDivs(); // call the removeBreweryList() function here
 
       return response.json();
     })
-    .then(function(breweryData) {
+    .then(function (breweryData) {
       console.log(breweryData);
       for (let i = 0; i < breweryData.length; i++) {
         var breweryDiv = document.createElement("div");
-        breweryDiv.classList.add("brewery-div","column","card","has-background-info-light","m-1");
-        var cardcontentdiv = document.createElement('div');
-        var contentdiv = document.createElement('div');
-        contentdiv.classList.add('content');
-        cardcontentdiv.classList.add('card-content');
+        breweryDiv.classList.add(
+          "brewery-div",
+          "column",
+          "card",
+          "has-background-info-light",
+          "m-1"
+        );
+        var cardContentDiv = document.createElement("div");
+        var contentDiv = document.createElement("div");
+        contentDiv.classList.add("content");
+        cardContentDiv.classList.add("card-content");
 
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
@@ -59,14 +65,14 @@ function displayBreweries() {
         UList.appendChild(breweryAddressLine2);
         UList.appendChild(breweryPhone);
         UList.appendChild(breweryUrlItem);
-        contentdiv.appendChild(UList);
-        cardcontentdiv.appendChild(contentdiv);
-        breweryDiv.appendChild(cardcontentdiv);
+        contentDiv.appendChild(UList);
+        cardContentDiv.appendChild(contentDiv);
+        breweryDiv.appendChild(cardContentDiv);
 
         Putting.appendChild(breweryDiv);
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error(error);
     });
 }
@@ -79,15 +85,16 @@ function showWeather() {
   var cityInput = document.querySelector("#city-input");
   city = cityInput.value;
   fetch(weatherUrl, {})
-    .then(function(response) {
+    .then(function (response) {
       return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
       var iconUrl =
         "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
         document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat left top fixed`;
+        document.body.style.backgroundPosition = "left 0px top 120px";
       }
       changeBackground();
       var Temp = document.querySelector("#temp");
@@ -96,8 +103,19 @@ function showWeather() {
     });
 }
 var searchBtn = document.getElementById("city-search-btn");
-searchBtn.addEventListener("click", displayBreweries);
-searchBtn.addEventListener("click", showWeather);
+searchBtn.addEventListener("click", function () {
+  displayBreweries();
+  showWeather();
+});
+
+// Enter key event listener
+var cityInput = document.querySelector("#city-input");
+cityInput.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    searchBtn.click();
+  }
+});
 
 // Execute a function when the user presses a key on the keyboard
 

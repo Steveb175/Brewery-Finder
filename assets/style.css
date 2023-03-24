@@ -1,0 +1,14 @@
+
+/*Header Styling*/
+header img {
+    margin-top: 1em;
+    margin-right: 2em;
+    margin-left: 2em;
+  }
+
+
+/*Temperature display*/
+#temp {
+    margin-top: 10px;
+}
+
