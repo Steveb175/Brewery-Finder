@@ -28,9 +28,13 @@ function displayBreweries() {
         breweryDiv.classList.add("brewery-div");
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
+        breweryName.classList.add("brewery-name");
         var breweryAddressLine1 = document.createElement("li");
+        breweryAddressLine1.classList.add("brewery-address-line1");
         var breweryAddressLine2 = document.createElement("li");
+        breweryAddressLine2.classList.add("brewery-address-line2");
         var breweryPhone = document.createElement("li");
+        breweryPhone.classList.add("brewery-phone");
         breweryName.textContent = breweryData[i].name;
         breweryAddressLine1.textContent = breweryData[i].street;
         breweryAddressLine2.textContent =
