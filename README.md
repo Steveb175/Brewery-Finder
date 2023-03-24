@@ -9,8 +9,8 @@ I also want to see what the weather is so that I can determine if I want to go o
 
 The Project is finished after the following: 
 
-1. A use-able API is found that will allow the developers to use it to find nearby breweries through a cityname. 
+1. A use-able API is found that will allow the developers to use it to find nearby breweries through a city-name. 
 2. A basic HTML with a header, a search bar with a button, and footer.
 3. The content of each specific breweries should display onscreen. 
 4. The weather should show up on the top right of the screen. 
-5. The content that is displayed from the Javascript/API's, should be look orderly and have a range of differing colors and styles.
+5. The content that is displayed from the Javascript/API's, should look orderly and have a range of differing colors and styles.
