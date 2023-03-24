@@ -93,8 +93,8 @@ function showWeather() {
       var iconUrl =
         "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
-        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat left top fixed`;
-        document.body.style.backgroundPosition = "left 0px top 120px";
+        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat right top fixed`;
+        document.body.style.backgroundPosition = "right 0px top 120px";
       }
       changeBackground();
       var Temp = document.querySelector("#temp");
