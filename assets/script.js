@@ -117,7 +117,6 @@ cityInput.addEventListener("keyup", function (event) {
   }
 });
 
-// Execute a function when the user presses a key on the keyboard
 
 //<script>
 // function myFunction() {
