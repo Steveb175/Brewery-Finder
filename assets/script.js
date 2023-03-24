@@ -28,9 +28,15 @@ function displayBreweries() {
         breweryDiv.classList.add("brewery-div");
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
+        breweryName.classList.add("brewery-name");
         var breweryAddressLine1 = document.createElement("li");
+        breweryAddressLine1.classList.add("brewery-address-line1");
         var breweryAddressLine2 = document.createElement("li");
+        breweryAddressLine2.classList.add("brewery-address-line2");
         var breweryPhone = document.createElement("li");
+        var breweryUrlItem = document.createElement("li");
+        var breweryUrl = document.createElement("a");
+        breweryPhone.classList.add("brewery-phone");
         breweryName.textContent = breweryData[i].name;
         breweryAddressLine1.textContent = breweryData[i].street;
         breweryAddressLine2.textContent =
@@ -40,10 +46,14 @@ function displayBreweries() {
           " " +
           breweryData[i].postal_code.slice(0, 5);
         breweryPhone.textContent = breweryData[i].phone;
+        breweryUrl.textContent = breweryData[i].website_url;
+        breweryUrl.href = breweryData[i].website_url;
+        breweryUrlItem.appendChild(breweryUrl);
         UList.appendChild(breweryName);
         UList.appendChild(breweryAddressLine1);
         UList.appendChild(breweryAddressLine2);
         UList.appendChild(breweryPhone);
+        UList.appendChild(breweryUrlItem);
         breweryDiv.appendChild(UList);
         Putting.appendChild(breweryDiv);
       }
