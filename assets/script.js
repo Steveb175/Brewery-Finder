@@ -33,17 +33,36 @@ function displayBreweries() {
 
         var UList = document.createElement("ul");
         var breweryName = document.createElement("li");
-        var breweryAddress = document.createElement("li");
+        breweryName.classList.add("brewery-name");
+        var breweryAddressLine1 = document.createElement("li");
+        breweryAddressLine1.classList.add("brewery-address-line1");
+        var breweryAddressLine2 = document.createElement("li");
+        breweryAddressLine2.classList.add("brewery-address-line2");
         var breweryPhone = document.createElement("li");
+        var breweryUrlItem = document.createElement("li");
+        var breweryUrl = document.createElement("a");
+        breweryPhone.classList.add("brewery-phone");
         breweryName.textContent = breweryData[i].name;
-        breweryAddress.textContent = breweryData[i].street;
+        breweryAddressLine1.textContent = breweryData[i].street;
+        breweryAddressLine2.textContent =
+          breweryData[i].city +
+          ", " +
+          breweryData[i].state +
+          " " +
+          breweryData[i].postal_code.slice(0, 5);
         breweryPhone.textContent = breweryData[i].phone;
+        breweryUrl.textContent = breweryData[i].website_url;
+        breweryUrl.href = breweryData[i].website_url;
+        breweryUrlItem.appendChild(breweryUrl);
         UList.appendChild(breweryName);
-        UList.appendChild(breweryAddress);
+        UList.appendChild(breweryAddressLine1);
+        UList.appendChild(breweryAddressLine2);
         UList.appendChild(breweryPhone);
+        UList.appendChild(breweryUrlItem);
         contentdiv.appendChild(UList);
         cardcontentdiv.appendChild(contentdiv);
         breweryDiv.appendChild(cardcontentdiv);
+
         Putting.appendChild(breweryDiv);
       }
     })
@@ -56,7 +75,7 @@ function showWeather() {
   var weatherUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
-    "&appid=4f532c03f12a6d8603036fbfb4f2b105";
+    "&appid=4f532c03f12a6d8603036fbfb4f2b105&units=imperial";
   var cityInput = document.querySelector("#city-input");
   city = cityInput.value;
   fetch(weatherUrl, {})
@@ -66,17 +85,21 @@ function showWeather() {
     .then(function(data) {
       //spit out the weather to the appropriate place. data.main.temp + "°F"
       var iconUrl =
-        "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+        "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
-        document.body.style.background =
-          "#f3f3f3 url('iconUrl') no-repeat right top";
+        document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat left top fixed`;
       }
+      changeBackground();
+      var Temp = document.querySelector("#temp");
+      Temp.textContent = data.main.temp + "°F";
       console.log(data);
     });
 }
 var searchBtn = document.getElementById("city-search-btn");
 searchBtn.addEventListener("click", displayBreweries);
 searchBtn.addEventListener("click", showWeather);
+
+// Execute a function when the user presses a key on the keyboard
 
 //<script>
 // function myFunction() {
