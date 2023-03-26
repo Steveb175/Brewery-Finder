@@ -32,22 +32,23 @@ function displayBreweries() {
           "has-background-info-light",
           "m-1"
         );
+        // New variables for element creation and adding classes
         var cardContentDiv = document.createElement("div");
         var contentDiv = document.createElement("div");
         contentDiv.classList.add("content");
         cardContentDiv.classList.add("card-content");
-
-        var UList = document.createElement("ul");
-        var breweryName = document.createElement("li");
+        var UList = document.createElement("div");
+        var breweryName = document.createElement("p");
         breweryName.classList.add("brewery-name");
-        var breweryAddressLine1 = document.createElement("li");
+        var breweryAddressLine1 = document.createElement("p");
         breweryAddressLine1.classList.add("brewery-address-line1");
-        var breweryAddressLine2 = document.createElement("li");
+        var breweryAddressLine2 = document.createElement("p");
         breweryAddressLine2.classList.add("brewery-address-line2");
-        var breweryPhone = document.createElement("li");
-        var breweryUrlItem = document.createElement("li");
+        var breweryPhone = document.createElement("p");
+        var breweryUrlItem = document.createElement("p");
         var breweryUrl = document.createElement("a");
         breweryPhone.classList.add("brewery-phone");
+        // Changing text content for these new variables
         breweryName.textContent = breweryData[i].name;
         breweryAddressLine1.textContent = breweryData[i].street;
         breweryAddressLine2.textContent =
@@ -57,8 +58,18 @@ function displayBreweries() {
           " " +
           breweryData[i].postal_code.slice(0, 5);
         breweryPhone.textContent = breweryData[i].phone;
+        var phoneNum = breweryData[i].phone;
+        var formattedPhoneNum =
+          "(" +
+          phoneNum.slice(0, 3) +
+          ") " +
+          phoneNum.slice(3, 6) +
+          "-" +
+          phoneNum.slice(6, 10);
+        breweryPhone.textContent = formattedPhoneNum;
         breweryUrl.textContent = breweryData[i].website_url;
         breweryUrl.href = breweryData[i].website_url;
+        // Appending these new variables to the HTML so that they are visible
         breweryUrlItem.appendChild(breweryUrl);
         UList.appendChild(breweryName);
         UList.appendChild(breweryAddressLine1);
@@ -94,7 +105,7 @@ function showWeather() {
         "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
       function changeBackground() {
         document.body.style.background = `#f3f3f3 url(${iconUrl}) no-repeat right top fixed`;
-        document.body.style.backgroundPosition = "right 0px top 120px";
+        document.body.style.backgroundPosition = "right 0px top 270px";
       }
       changeBackground();
       var Temp = document.querySelector("#temp");
@@ -116,10 +127,3 @@ cityInput.addEventListener("keyup", function (event) {
     searchBtn.click();
   }
 });
-
-
-//<script>
-// function myFunction() {
-//   document.body.style.background = "#f3f3f3 url('img_tree.png') no-repeat right top";
-// }
-// </script>
