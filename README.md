@@ -1,10 +1,24 @@
-## User Story
+# Brewery-Finder
 
-I want to be able to find breweries in my city as well as learn the weather of the day.
+## Description
 
-## Acceptance Criteria
+This application allows users to search for breweries in a desired city and it will also display the current weather within that city.
+## Visuals
+![Example Visual](assets/images/brewery-finder-gif.gif)
+## Usage
 
-The Project is finished after the following:
+The purpose of this application is to allow users to find local breweries to visit, and to make them aware of the weather for the journey ahead. It can also be used to search for breweries in any other city that the user may desire.
 
-1. A use-able API is found that will allow the developers to find nearby breweries in a city as well as display weather data.
-2. The hard coded page is ready and loads with API data upon request.
+## URL
+
+https://steveb175.github.io/Brewery-Finder/
+
+## Credits
+
+[Bulma](https://bulma.io/)  
+[OpenWeatherMap](https://openweathermap.org/api)  
+[OpenBreweryDB](https://www.openbrewerydb.org/)  
+
+## License
+
+MIT

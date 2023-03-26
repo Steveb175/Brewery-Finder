@@ -89,6 +89,7 @@ function displayBreweries() {
     .catch(function (error) {
       console.error(error);
     });
+  cityInput.value = "";
 }
 // Function to display weather icon and pull temperature
 function showWeather() {
