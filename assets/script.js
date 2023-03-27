@@ -10,8 +10,6 @@ function removeBreweryDivs() {
 
 // Fetch and display breweries in chosen city's area
 function displayBreweries() {
-//   var cityInput = document.querySelector("#city-input");  the original, delete after verifying following code works
-//   city = cityInput.value;
   var cityInput = document.querySelector("#city-input");
   localStorage.setItem("chosenCity", cityInput.value);
   city = localStorage.getItem("chosenCity");
@@ -120,6 +118,7 @@ function showWeather() {
     });
 }
 
+// Search button click event
 var searchBtn = document.getElementById("city-search-btn");
 searchBtn.addEventListener("click", function () {
   displayBreweries();
