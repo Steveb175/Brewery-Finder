@@ -10,9 +10,11 @@ function removeBreweryDivs() {
 
 // Fetch and display breweries in chosen city's area
 function displayBreweries() {
+//   var cityInput = document.querySelector("#city-input");  the original, delete after verifying following code works
+//   city = cityInput.value;
   var cityInput = document.querySelector("#city-input");
-  city = cityInput.value;
-  // city = localStorage.getItem("cityName").replace(" ", "_");
+  localStorage.setItem("chosenCity", cityInput.value);
+  city = localStorage.getItem("chosenCity");
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
   fetch(breweryUrl, {})
     .then(function (response) {
